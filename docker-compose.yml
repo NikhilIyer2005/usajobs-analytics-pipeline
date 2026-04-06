@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: usajobs_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  airflow:
+    image: apache/airflow:2.9.3
+    container_name: usajobs_airflow
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      # Hardcoded to avoid env-substitution issues while you’re learning
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://warehouse:warehouse@postgres:5432/jobs
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
+      _PIP_ADDITIONAL_REQUIREMENTS: "psycopg2-binary==2.9.9 requests==2.32.3 pyyaml==6.0.2"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./ingestion:/opt/airflow/ingestion
+      - ./config:/opt/airflow/config
+    user: "${AIRFLOW_UID}:0"
+    command:
+      - bash
+      - -lc
+      - >
+        airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com || true;
+        airflow scheduler & exec airflow webserver
+
+  adminer:
+    image: adminer:4
+    container_name: usajobs_adminer
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8080"
+
+volumes:
+  pg_data:
