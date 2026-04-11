@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: mart_job_postings_daily
+    columns:
+      - name: snapshot_date
+        tests: [not_null]
+      - name: search_name
+        tests: [not_null]
+      - name: postings_count
+        tests: [not_null]
+        
