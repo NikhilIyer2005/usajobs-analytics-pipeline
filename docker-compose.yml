@@ -24,6 +24,10 @@ services:
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
       AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "true"
       _PIP_ADDITIONAL_REQUIREMENTS: "psycopg2-binary==2.9.9 requests==2.32.3 pyyaml==6.0.2"
+      USAJOBS_EMAIL: ${USAJOBS_EMAIL}
+      USAJOBS_API_KEY: ${USAJOBS_API_KEY}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
     ports:
       - "8080:8080"
     volumes:
