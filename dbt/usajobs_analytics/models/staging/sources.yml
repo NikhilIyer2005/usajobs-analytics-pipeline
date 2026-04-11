@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: usajobs_search_results
+        description: "Raw USAJOBS API responses (one row per search page)."
+        columns:
+          - name: id
+            tests: [not_null, unique]
+          - name: run_id
+            tests: [not_null]
+          - name: ingested_at
+            tests: [not_null]
+          - name: search_name
+            tests: [not_null]
+          - name: page_number
+            tests: [not_null]
+          - name: response_json
+            tests: [not_null]

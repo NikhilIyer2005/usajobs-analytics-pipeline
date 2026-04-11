@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_usajobs_postings
+    columns:
+      - name: matched_object_id
+        tests: [not_null]
+      - name: position_title
+        tests: [not_null]
+      - name: organization_name
+        tests: [not_null]
