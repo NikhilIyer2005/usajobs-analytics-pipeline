@@ -1,0 +1,12 @@
+usajobs_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: warehouse
+      password: warehouse
+      port: 5432
+      dbname: jobs
+      schema: analytics
+      threads: 4
