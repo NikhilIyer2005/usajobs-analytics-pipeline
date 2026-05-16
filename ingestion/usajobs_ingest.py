@@ -130,7 +130,7 @@ def insert_raw_page(
             ),
         )
 
-def run_ingestion(searches_yaml: Path, max_pages_per_search: int = 3) -> str:
+def run_ingestion(searches_yaml: Path, max_pages_per_search: int = 5) -> str:
     run_id = str(uuid.uuid4())
     ingested_at = datetime.now(timezone.utc)
 

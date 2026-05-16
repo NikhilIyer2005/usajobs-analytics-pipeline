@@ -6,3 +6,23 @@ searches:
   - name: data_analyst_orlando
     keyword: "data analyst"
     location: "Orlando, FL"
+
+  - name: data_scientist_orlando
+    keyword: "data scientist"
+    location: "Orlando, FL"
+  
+  - name: cloud_engineer_orlando
+    keyword: "cloud engineer"
+    location: "Orlando, FL"
+
+  - name: data_engineer_dc
+    keyword: "data engineer"
+    location: "Washington, DC"
+  
+  - name: data_analyst_dc
+    keyword: "data analyst"
+    location: "Washington, DC"
+  
+  - name: data_engineer_atl
+    keyword: "data engineer"
+    location: "Atlanta, GA"
