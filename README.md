@@ -43,12 +43,12 @@ Power BI Dashboard
 
 ## 🧰 Tech Stack Used
 
-**Ingestion:** Python (requests), USAJOBS Search API, YAML-driven configuration (`config/searches.yml`)  
-**Orchestration:** Apache Airflow (Docker) — DAG chaining `ingest_usajobs → dbt_run → dbt_test`  
-**Storage:** PostgreSQL (raw JSONB + analytics schema)  
-**Transformations / Modeling:** dbt (sources/refs, staging → marts, tests)  
-**Analytics / BI:** Power BI (dashboards, slicers/filters, basic DAX measures)  
-**Dev Tools:** Git/GitHub, Docker Desktop, VS Code
+ - **Ingestion:** Python (requests), USAJOBS Search API, YAML-driven configuration (`config/searches.yml`)  
+ - **Orchestration:** Apache Airflow (Docker) — DAG chaining `ingest_usajobs → dbt_run → dbt_test`  
+ - **Storage:** PostgreSQL (raw JSONB + analytics schema)  
+ - **Transformations / Modeling:** dbt (sources/refs, staging → marts, tests)  
+ - **Analytics / BI:** Power BI (dashboards, slicers/filters, basic DAX measures)  
+ - **Dev Tools:** Git/GitHub, Docker Desktop, VS Code
 
 ---
 
@@ -188,8 +188,8 @@ Click **Home → Refresh** after each pipeline run.
 
 ## 📊 Dashboard
 
-PNG screenshot:
-- `powerbi/screenshots/usajobs_postings_dashboard.png`
+![USAJOBS Power BI Dashboard](powerbi/screenshots/usajobs_postings_dashboard.png)
+The Power BI dashboard visualizes daily posting volume, total postings, day-over-day change, top agencies, and results by search definition.
 
 PDF export:
 - `powerbi/screenshots/usajobs_postings_analytics_dashboard.pdf`
