@@ -191,8 +191,7 @@ Click **Home → Refresh** after each pipeline run.
 ![USAJOBS Power BI Dashboard](powerbi/screenshots/usajobs_postings_dashboard.png)
 The Power BI dashboard visualizes daily posting volume, total postings, day-over-day change, top agencies, and results by search definition.
 
-PDF export:
-- `powerbi/screenshots/usajobs_postings_analytics_dashboard.pdf`
+PDF export: `powerbi/screenshots/usajobs_postings_analytics_dashboard.pdf`
 
 ---
 
