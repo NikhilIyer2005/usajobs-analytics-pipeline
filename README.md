@@ -38,7 +38,7 @@ dbt Transformations (staging → marts)
             v
 Power BI Dashboard
    └── KPIs + trends + slicers (search_name, location, date)
-
+```
 ---
 
 ## 🧰 Tech Stack Used
@@ -80,7 +80,7 @@ Power BI Dashboard
 │       ├── usajobs_postings_dashboard.png
 │       └── usajobs_postings_analytics_dashboard.pdf
 └── docker-compose.yml
-
+```
 
 ---
 
@@ -120,7 +120,7 @@ AIRFLOW_UID=50000
 
 USAJOBS_EMAIL=your_email@example.com
 USAJOBS_API_KEY=your_api_key_here
-
+```
 ### 2) Configure searches
 This pipeline is **config-driven**: ingestion reads YAML search definitions (keyword + location). Each entry represents one query and is tagged with a stable `name` used downstream for grouping/filters.
 
@@ -133,7 +133,7 @@ searches:
   - name: data_engineer_orlando
     keyword: "data engineer"
     location: "Orlando, FL"
-
+```
 Example (multiple searches):
 searches:
   - name: data_engineer_orlando
@@ -152,7 +152,7 @@ Notes:
 From the repo root:
   ```bash
   `docker compose up -d`
-
+  ```
     - Airflow UI: http://localhost:8080 (login: `admin` / `admin`)
     - Adminer UI: http://localhost:8081
 
@@ -171,11 +171,11 @@ Check mart row count:
 
 ```bash
 docker exec -it usajobs_postgres psql -U warehouse -d jobs -c "SELECT COUNT(*) FROM analytics.mart_job_postings_daily;"
-
+```
 (Optional) Check latest ingestion runs:
   ```bash
   docker exec -it usajobs_postgres psql -U warehouse -d jobs -c "SELECT run_id, MAX(ingested_at) AS latest_ingest, COUNT(*) AS pages FROM raw.usajobs_search_results GROUP BY run_id ORDER BY latest_ingest DESC LIMIT 3;"
-
+  ```
 ### 6) Power BI (optional)
 Connect Power BI to PostgreSQL:
 - Server: `localhost`
