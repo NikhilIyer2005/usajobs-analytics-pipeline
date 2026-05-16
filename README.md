@@ -124,8 +124,7 @@ USAJOBS_API_KEY=your_api_key_here
 ### 2) Configure searches
 This pipeline is **config-driven**: ingestion reads YAML search definitions (keyword + location). Each entry represents one query and is tagged with a stable `name` used downstream for grouping/filters.
 
-Edit:
-- `config/searches.yml`
+Edit `config/searches.yml`:
 
 Format:
 ```yaml
@@ -135,6 +134,7 @@ searches:
     location: "Orlando, FL"
 ```
 Example (multiple searches):
+```yaml
 searches:
   - name: data_engineer_orlando
     keyword: "data engineer"
@@ -143,7 +143,7 @@ searches:
   - name: data_analyst_orlando
     keyword: "data analyst"
     location: "Orlando, FL"
-
+```
 Notes:
   - Keep `name` values stable (changing the name changes how results group in marts/Power BI).
   - If you add many searches, consider capping pages per search in ingestion to control volume and runtime.
