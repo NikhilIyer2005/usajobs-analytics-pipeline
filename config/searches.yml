@@ -26,3 +26,11 @@ searches:
   - name: data_engineer_atl
     keyword: "data engineer"
     location: "Atlanta, GA"
+
+  - name: data_engineer_seattle
+    keyword: "data engineer"
+    location: "Seattle, WA"
+
+  - name: data_management_dc
+    keyword: "data management"
+    location: "Washington, DC"
