@@ -1,0 +1,6 @@
+pytest
+ruff
+requests
+PyYAML
+python-dotenv
+psycopg2-binary

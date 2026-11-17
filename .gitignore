@@ -7,6 +7,11 @@ __pycache__/
 .venv/
 venv/
 
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
 # dbt
 dbt/target/
 dbt/dbt_packages/
