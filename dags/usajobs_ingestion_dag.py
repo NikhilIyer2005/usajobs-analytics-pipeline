@@ -1,11 +1,13 @@
 from __future__ import annotations
+
 from datetime import datetime
+
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
 with DAG(
     dag_id="usajobs_ingestion",
-    start_date=datetime(2026,4,11),
+    start_date=datetime(2026, 4, 11),
     schedule="@daily",
     catchup=False,
     tags=["usajobs"],
